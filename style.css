@@ -1,0 +1,176 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("bg.jpg") center/cover;
+  font-family: "Times New Roman", Times, serif;
+  height: 100vh;
+  /* Oublie de mettre ce qui suis en bas */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Je stylyse et donne des position et des param par rapport a sa disposition */
+.card {
+  min-height: 400px;
+  background: white;
+  padding: 20px;
+  display: flex;
+  /* Pas besoin de flex-wrap donc on va utiliser 
+  flex-direction et on va ajouter un box-shadow car
+  je l'avais oublier */
+  /*   flex-wrap: wrap; */
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  /* Erreur de margin top */
+  width: 30%;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Je cible le container et l'image */
+.image {
+  /* J'ai pas mis justify-content: center; 
+    pour centrer mon image */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+img {
+  /* Pas d'utilisation de sa background-image: center/cover;
+ici sauf dans le body ce qu'il faut */
+  width: 75%;
+  border-radius: 100px;
+  box-shadow: 0px 0px 5px 6px rgb(204, 196, 196);
+  /* Ajout de object-fit: cover; meilleur utilisation */
+  object-fit: cover;
+}
+
+/* Je stylise le contenair du description  */
+.description {
+  /* Pas besoir de position: relative; pour le
+    positionnement de cette container et vaut mieux
+    mettre les alignement ici aussi dans un contenair*/
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.251);
+  border-radius: 10px;
+  box-shadow: 0 0 7px 6px rgb(239, 239, 239);
+  /* Ajout de de text-align */
+  text-align: center;
+}
+
+/* Je cible l'enfant h2 du classe description pour aligner mon texte */
+.description h2 {
+  /* text-align: center;  pas ici mais dans son 
+  container ici on va juste mettre un margin-bottom: 10px;*/
+  margin-bottom: 10px;
+}
+
+.description p {
+  text-align: justify;
+}
+
+/* Je positionne mes bouttons */
+.card .button {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* Ajout du gap pour l'espacement de bouton */
+  gap: 10px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+button {
+  /* On enleve le margin et text-align sa sert a
+    rien ici */
+  padding: 10px;
+  width: 60%;
+}
+
+/* Je stylise mes boutons */
+.btn {
+  background: #111;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.3));
+  color: white;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+  transition: 0.3s ease;
+  /* Ajout d'un border none */
+  border: none;
+}
+
+.btn:hover {
+  background: rgba(0, 0, 0, 0.595);
+}
+
+/* Je stylyse mes Icons */
+.card .icons {
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Je fais une transition au survol, pour que les element 
+qui ne sont pas survoler puisse reculer */
+.icons:hover a:not(:hover) {
+  transform: scale(0.9);
+}
+
+a {
+  transition: 0.3s ease;
+}
+
+a i {
+  font-size: 20px;
+  margin: 10px;
+  color: #555;
+  transition: color 0.3s;
+  padding: 5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0px 0px 4px 0px #555;
+}
+
+a:hover {
+  transform: scale(1.5);
+  color: #616c48;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 800px) {
+  .card {
+    /* Correction pas mais 60% */
+    width: 40%;
+  }
+  img {
+    width: 70%;
+  }
+  .button {
+    width: 80%;
+  }
+  a i {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 542px) {
+  .card {
+    /* Correction pas de height ici et modification
+    du width pas 60 mais 90% */
+    width: 80%;
+  }
+  .description h2 {
+    font-size: 1rem;
+  }
+  .description p {
+    font-size: 0.9rem;
+  }
+}
+
+/* A revoir le RESPONSIVE */
